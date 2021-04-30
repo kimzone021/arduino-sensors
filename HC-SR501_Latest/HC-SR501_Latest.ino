@@ -10,11 +10,11 @@
 SoftwareSerial Serial1(6, 7);
 #endif
 
-char ssid[] = "Telia-73E45D";
-char pass[] = "FD979C75E0";
+char ssid[] = "FunkyNet";
+char pass[] = "Smart2homeZone7";
 int status = WL_IDLE_STATUS;
 
-char server[] = "192.168.1.156";
+char server[] = "192.168.1.127";
 
 String endpoint = "GET /api/CamServer/pirstair";
 String payload = "";
@@ -79,7 +79,7 @@ void SendMessage(String payload)
 {
   WiFiEspClient client;
   client.stop();
-  if (client.connect(server, 45455)) {
+  if (client.connect(server, 4444)) {
     Serial.println("Connected to server");
     client.println(endpoint+payload);
     client.println("content-type: application/json");
